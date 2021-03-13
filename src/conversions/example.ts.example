@@ -1,0 +1,13 @@
+import type { Conversion } from "../types/Conversion";
+
+const conversion: Conversion = {
+  name: "[NAME OF THE CONVERSION]",
+  aToB: function (input) {
+    return "some result here"
+  },
+  bToA: function (input) {
+    return "some result here"
+  },
+};
+
+export default conversion;
