@@ -16,6 +16,8 @@
   }
 
   function handleChange() {
+    if (!lastInput) return;
+
     if (lastInput === inputA) {
       try {
         inputB.value = conversions[conversionOption].aToB(inputA.value);
@@ -43,13 +45,16 @@
     </p>
   </header>
   <main>
-    <Panel
-      on:keyup={handleChange}
-      bind:elem={inputA}
-      on:focus={handleInputFocus}
-    />
+    <div class="panel">
+      <h6>{conversionOption && conversions[conversionOption].aName}</h6>
+      <Panel
+        on:keyup={handleChange}
+        bind:elem={inputA}
+        on:focus={handleInputFocus}
+      />
+    </div>
     <div class="selector">
-      <p><b>Conversion Type</b></p>
+      <h6>Conversion Type</h6>
       <!-- svelte-ignore a11y-no-onchange -->
       <select bind:value={conversionOption} on:change={handleChange}>
         {#each Object.entries(conversions) as [id, { aName, bName }]}
@@ -57,11 +62,15 @@
         {/each}
       </select>
     </div>
-    <Panel
-      on:keyup={handleChange}
-      bind:elem={inputB}
-      on:focus={handleInputFocus}
-    />
+    <div class="panel">
+      <h6>{conversionOption && conversions[conversionOption].bName}</h6>
+      <Panel
+        on:keyup={handleChange}
+        bind:elem={inputB}
+        on:focus={handleInputFocus}
+      />
+      <div />
+    </div>
   </main>
 
   <footer>
@@ -87,8 +96,13 @@
     h1 {
       color: #ff3e00;
       text-transform: uppercase;
-      font-size: 4em;
+      font-size: 3em;
       font-weight: 100;
+    }
+
+    p {
+      margin-top: 4px;
+      margin-bottom: 4px;
     }
   }
 
@@ -98,13 +112,28 @@
     display: flex;
     flex-direction: row;
 
+    h6 {
+      font-size: 1em;
+      margin: 5px 0;
+    }
+
     > :global(*) {
       flex: 1;
       text-align: center;
+      height: 100%;
+    }
+
+    > .panel {
+      display: flex;
+      flex-direction: column;
     }
 
     > .selector {
       max-width: 20%;
+
+      > select {
+        text-align: center;
+      }
     }
   }
 
