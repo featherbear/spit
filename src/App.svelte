@@ -47,7 +47,8 @@
       on:focus={handleInputFocus}
     />
     <div class="selector">
-      <select bind:value={conversionOption} on:select={handleChange}>
+      <!-- svelte-ignore a11y-no-onchange -->
+      <select bind:value={conversionOption} on:change={handleChange}>
         {#each Object.entries(conversions) as [id, { name }]}
           <option value={id}>{name}</option>
         {/each}
