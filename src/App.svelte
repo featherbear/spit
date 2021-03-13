@@ -31,14 +31,16 @@
         inputA.value = "";
       }
     }
-    // Failed to convert
   }
 </script>
 
 <div class="container">
   <header>
     <h1>Spit</h1>
-    <p>Select a conversion to perform below, then enter the data into either text field</p>
+    <p>
+      Select a conversion to perform below, then enter the data into either text
+      field
+    </p>
   </header>
   <main>
     <Panel
@@ -47,6 +49,7 @@
       on:focus={handleInputFocus}
     />
     <div class="selector">
+      <p><b>Conversion Type</b></p>
       <!-- svelte-ignore a11y-no-onchange -->
       <select bind:value={conversionOption} on:change={handleChange}>
         {#each Object.entries(conversions) as [id, { name }]}
@@ -61,7 +64,10 @@
     />
   </main>
 
-  <footer>footer</footer>
+  <footer>
+    <a href="https://github.com/featherbear/spit">GitHub</a> |
+    <a href="https://featherbear.cc/">Andrew Wong</a>
+  </footer>
 </div>
 
 <style lang="scss">
@@ -91,8 +97,24 @@
     padding: 8px;
     display: flex;
     flex-direction: row;
+
+    > :global(*) {
+      flex: 1;
+      text-align: center;
+    }
+
+    > .selector {
+      max-width: 20%;
+    }
   }
 
+  footer {
+    background-color: #ff8a62;
+    padding: 4px;
+    color: white;
+    user-select: none;
+    text-align: center;
+  }
   //   @media (min-width: 640px) {
   //     main {
   //       max-width: none;
