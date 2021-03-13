@@ -4,7 +4,7 @@ import type { Conversion } from "../types/Conversion";
 const conversion: Conversion = {
   name: "Lines to comma separated",
   aToB: function (input) {
-    return input.replace(/,/g, '\\,').split("\n").toString()
+    return input.replace(/,/g, '\\,').split("\n").map(s => s.trim()).join(",")
   },
   bToA: function (input) {
     let elements = []
@@ -29,7 +29,7 @@ const conversion: Conversion = {
     }
 
     // Now replace \, -> ,
-    return elements.map(v => v.replace(/\\,/g, ',')).join("\n")
+    return elements.map(v => v.replace(/\\,/g, ',')).map(s => s.trim()).join("\n")
   }
 };
 
