@@ -133,6 +133,7 @@
 
       > select {
         text-align: center;
+        max-width: calc(100% - 20px);
       }
     }
   }
