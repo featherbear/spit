@@ -1,7 +1,8 @@
 import type { Conversion } from "../types/Conversion";
 
 const conversion: Conversion = {
-  name: "[NAME OF THE CONVERSION]",
+  aName: "[NAME OF THE FIRST TYPE]",
+  bName: "[NAME OF THE SECOND TYPE]",
   aToB: function (input) {
     return "some result here"
   },

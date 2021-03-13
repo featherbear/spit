@@ -2,7 +2,8 @@ import { element } from "svelte/internal";
 import type { Conversion } from "../types/Conversion";
 
 const conversion: Conversion = {
-  name: "Lines to comma separated",
+  aName: "Lines",
+  bName: "Comma-separated",
   aToB: function (input) {
     return input.replace(/,/g, '\\,').split("\n").map(s => s.trim()).join(",")
   },

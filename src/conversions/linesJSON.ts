@@ -1,7 +1,8 @@
 import type { Conversion } from "../types/Conversion";
 
 const conversion: Conversion = {
-  name: "Lines to JSON",
+  aName: "Lines",
+  bName: "JSON",
   aToB: function (input) {
     input = input.trim()
     return input ? JSON.stringify(input.split("\n").map(s => s.trim()), null, 4) : "[]"

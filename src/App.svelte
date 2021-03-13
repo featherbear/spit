@@ -52,8 +52,8 @@
       <p><b>Conversion Type</b></p>
       <!-- svelte-ignore a11y-no-onchange -->
       <select bind:value={conversionOption} on:change={handleChange}>
-        {#each Object.entries(conversions) as [id, { name }]}
-          <option value={id}>{name}</option>
+        {#each Object.entries(conversions) as [id, { aName, bName }]}
+          <option value={id}>{aName} to {bName}</option>
         {/each}
       </select>
     </div>

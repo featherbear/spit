@@ -1,7 +1,9 @@
 type ConversionFunction = (arg: string) => string
 
 export type Conversion = {
-    name: string
+    aName: string
+    bName: string
+    
     aToB: ConversionFunction
     bToA: ConversionFunction
 }
