@@ -11,7 +11,7 @@
   function handleInputFocus({ target }) {
     if (lastInput !== target) {
       lastInput = target;
-      target.placeholder = ""
+      target.placeholder = "";
     }
   }
 
@@ -37,11 +37,8 @@
 
 <div class="container">
   <header>
-    <h1>Hello!</h1>
-    <p>
-      Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-      how to build Svelte apps.
-    </p>
+    <h1>Spit</h1>
+    <p>Select a conversion to perform below, then enter the data into either text field</p>
   </header>
   <main>
     <Panel
