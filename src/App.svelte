@@ -99,11 +99,16 @@
 
 <style lang="scss">
   div.container {
+
+    --accent: #ff3e00;
+    --accent2: #ff8a62;
+    --accent3: #f7d5ca;
+    
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
+  
 
   header {
     text-align: center;
@@ -112,7 +117,7 @@
     margin: 0 auto;
 
     h1 {
-      color: #ff3e00;
+      color: var(--accent);
       text-transform: uppercase;
       font-size: 3em;
       font-weight: 100;
@@ -133,6 +138,19 @@
     h6 {
       font-size: 1em;
       margin: 5px 0;
+
+      button {
+        margin: 0;
+        border: 2px solid var(--accent);
+        background-color: transparent;
+        cursor: pointer;
+
+        transition: background-color 0.1s;
+
+        &:hover {
+          background-color: var(--accent3);
+        }
+      }
     }
 
     > :global(*) {
@@ -157,7 +175,7 @@
   }
 
   footer {
-    background-color: #ff8a62;
+    background-color: var(--accent2);
     padding: 4px;
     color: white;
     user-select: none;
@@ -168,4 +186,5 @@
   //       max-width: none;
   //     }
   //   }
+  }
 </style>
