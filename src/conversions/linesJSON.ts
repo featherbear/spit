@@ -10,6 +10,10 @@ const conversion: Conversion = {
   bToA: function (input) {
     return JSON.parse(input).join("\n")
   },
+
+  bFormat(input) {
+    return JSON.stringify(JSON.parse(input), null, 4)
+  },
 };
 
 export default conversion;

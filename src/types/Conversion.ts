@@ -1,4 +1,4 @@
-type ConversionFunction = (arg: string) => string
+export type ConversionFunction = (arg: string) => string
 
 export type Conversion = {
     aName: string

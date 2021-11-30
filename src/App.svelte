@@ -7,6 +7,7 @@
   let conversionOption;
 
   import conversions from "./conversions";
+  import type { ConversionFunction } from "./types/Conversion";
 
   function handleInputFocus({ target }) {
     if (lastInput !== target) {
@@ -34,6 +35,15 @@
       }
     }
   }
+
+  function handleFormat(field: HTMLInputElement, operation: ConversionFunction) {
+    try {
+        field.value = operation(field.value);
+      } catch (e) {
+        field.placeholder = e.message;
+        field.value = "";
+      }
+  }
 </script>
 
 <div class="container">
@@ -46,7 +56,11 @@
   </header>
   <main>
     <div class="panel">
-      <h6>{conversionOption && conversions[conversionOption].aName}</h6>
+      <h6>{conversionOption && conversions[conversionOption].aName}
+      {#if conversions[conversionOption]?.aFormat}
+        <button on:click={() => handleFormat(inputA, conversions[conversionOption].aFormat)}>Format</button>
+      {/if}
+      </h6>
       <Panel
         on:keyup={handleChange}
         bind:elem={inputA}
@@ -63,7 +77,11 @@
       </select>
     </div>
     <div class="panel">
-      <h6>{conversionOption && conversions[conversionOption].bName}</h6>
+      <h6>{conversionOption && conversions[conversionOption].bName}
+      {#if conversions[conversionOption]?.bFormat}
+        <button on:click={() => handleFormat(inputB, conversions[conversionOption].bFormat)}>Format</button>
+      {/if}
+      </h6>
       <Panel
         on:keyup={handleChange}
         bind:elem={inputB}
