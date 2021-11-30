@@ -1,4 +1,3 @@
-import { element } from "svelte/internal";
 import type { Conversion } from "../types/Conversion";
 
 const conversion: Conversion = {

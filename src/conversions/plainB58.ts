@@ -1,6 +1,6 @@
 import type { Conversion } from "../types/Conversion";
 import b58 from 'base-58'
-import { Buffer } from 'buffer/'
+import { Buffer } from 'buffer/' // Need this forward slash
 
 const conversion: Conversion = {
   aName: "Plain text",
