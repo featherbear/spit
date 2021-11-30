@@ -6,4 +6,8 @@ export type Conversion = {
     
     aToB: ConversionFunction
     bToA: ConversionFunction
+
+    aFormat?: ConversionFunction
+    bFormat?: ConversionFunction
+
 }
