@@ -58,7 +58,7 @@
       <!-- svelte-ignore a11y-no-onchange -->
       <select bind:value={conversionOption} on:change={handleChange}>
         {#each Object.entries(conversions) as [id, { aName, bName }]}
-          <option value={id}>{aName} to {bName}</option>
+          <option value={id}>{aName} - {bName}</option>
         {/each}
       </select>
     </div>
